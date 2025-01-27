@@ -1,0 +1,58 @@
+
+
+Agent:- Control flow of an application defined by an LLM
+
+
+
+LangChain vs LangGraph:-
+
+- LangChain is basically use to build the applications using LLM and other componets of LC like chain...
+
+- Where as LangGraph is partculally useful to build the agentic and multi-agent applications.
+
+LangGraph can use the LC as a part of its application but need not necessary.
+
+
+
+-------------
+Building the components like nodes, edges and state together to form the graph. The graphical representation of agent is called graph
+
+Node:- execuetes the bussiness logic as a code or piece of software
+
+Edges:- Use to connect the nodes. if it is a normal edge it connects between two nodes. 
+
+        if it is a condition edge, it routes between nodes as per the logic.
+
+State: The first thing you do in the graph is defining the state of the graph. The state is schema or memory kind of in the graph which 
+
+        goes over the flow of graph and it may get update with the node logic and it is available over all the graph.
+
+
+Flow:
+
+- Define the state(Typedict or pydantic).
+- Create the nodes.
+- Create the edges.
+- Compile the graph for any errors or orphan nodes.
+- Invoke the graph for executing synchronusly.
+
+-------------
+
+Chain:
+
+Chain is nothing but sequencing the components to execte the task
+
+Here we dicuss about reducers, which are used to update/modify the state of a graph based on conditions
+
+By default with out reducer, the key state will get overide in every node and it can be avoided using reducers
+
+sample reducers used are add_messages, whicg add message over the nodes instead of overriding the messages.
+
+As messages are common in the process there is default state, by name MessageState which has messages as variable, add any messages as value and add_emssage as default reducer.
+
+Tool calling:
+
+The LLM call the tools to communicate iwth out side world. and based on the prompt passed it generates the response in general or by calling the tools.
+
+
+----------------------
